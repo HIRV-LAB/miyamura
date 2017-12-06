@@ -1,0 +1,47 @@
+この章では本研究で使用したデータについて説明する。
+また、２つの指標をどのように使ったのかについて述べる。
+
+\subsection{使用したデータ}
+今回JAXAから４８件提供の実際に発生した不具合情報のレポートを提供してもらった。
+このデータは機密事項な為、詳細には記述しない。
+また、この４８件のデータ１つにつき１つの障害を示しているが、欠陥は1つとは限らない。
+
+\subsection{適用方法}
+本実験では以下の手順で適用した。
+\begin{itemize}
+\item 不具合1つ1つに対して、欠陥が何であるかを明確にした
+\item 明確になった欠陥に対して、欠陥分類のどれに該当するのかをマッピングした
+\item マッピングされた欠陥に対して、それがどのプロセスで見つけるべきであったかを確認した
+\item 確認したデータを集計した
+\end{itemize}
+
+\subsection{適用結果}
+\subsubsection{欠陥の抽出および欠陥分類のマッピング}
+今回の４８件の不具合から１１０件の欠陥を抽出することができた。
+この欠陥を分類した結果を表\ref{欠陥の数}に示す。
+分類区分とは図\ref{欠陥の分類}で示した分類１～4に対応している。
+Dellberate faultでありAccidental faultsaである①は３１件、Dellberate faultでありIncompetence faultsであるは件２２、Non-Dellberate faultでありAccidental faultsであるは件１３、Non-Dellberate faultでありIncompetence faultsであるは件４４であった。各不具合に対する結果の分類の細かなデータは付録にて掲載する。
+
+
+\begin{table}[bp]
+\begin{tabular}{|l|l|l|} \hline
+分類区分 & 欠陥の種類 & 件数 \\\hline\hline
+① & Dellberate faultでありAccidental faults & 31 \\\hline
+② & Dellberate faultでありIncompetence faults & 22 \\\hline
+③ & Non-Dellberate faultでありAccidental faults & 13 \\\hline
+④ & Non-Dellberate faultでありIncompetence faults & 44 \\\hline
+\multicolumn{2}{|l|}{合計} & 110 \\\hline
+\end{tabular}
+\caption{各欠陥に対する不具合の数}
+\label{欠陥の数}
+\end{table}
+
+\subsubsection{対処すべきプロセス}
+上記の結果よりどのプロセスで発見すべきだったのかをマッピングした。
+１つの欠陥に対して複数の個所が該当することもある。
+①～④に対してそれぞれ集計し、
+
+
+\subsubsection{}
+\subsubsection{}
+
