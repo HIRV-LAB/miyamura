@@ -36,12 +36,39 @@ Dellberate faultでありAccidental faultsaである①は３１件、Dellberate faultであり
 \label{欠陥の数}
 \end{table}
 
-\subsubsection{対処すべきプロセス}
+\subsubsection{集計}
 上記の結果よりどのプロセスで発見すべきだったのかをマッピングした。
+マッピングした結果は付録に掲載する（図\ref{プロセスによる分類}）
 １つの欠陥に対して複数の個所が該当することもある。
-①～④に対してそれぞれ集計し、
 
+プロセスにより分類した結果を①～④に対してそれぞれ集計し、グラフ化を行うことでそれぞれの特徴が見えてくる。
+図\ref{積み上げグラフ}～図\ref{１+３}はその結果である
+図\ref{積み上げグラフ}は集計したものを合わせ、どのプロセスでの不具合が多いのかを示したグラフとなっている。
+図\ref{１+２}は①～④に対して正規化を行い、Dellberate faultとNon-Dellberate faultで比較したものである。
+図\ref{１+３}も同様に①～④に対して正規化を行いAccidental faultsaとDellberate faultで比較したものである。
 
-\subsubsection{}
-\subsubsection{}
+\begin{figure}
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.2]{add.eps}
+\caption{積み上げグラフ}
+\label{積み上げグラフ}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.2]{12.eps}
+\caption{①+②と③+④の比較}
+\label{１+２}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.2]{13.eps}
+\caption{①+③と②+④の比較}
+\label{１+３}
+\end{center}
+\end{figure}
+
 
