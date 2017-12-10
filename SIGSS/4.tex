@@ -1,5 +1,5 @@
-この章では本研究で使用したデータについて説明する。
-また、２つの指標をどのように使ったのかについて述べる。
+この章では本研究で使用したJAXAから提供された実際の不具合データについて説明する。
+また、２つの指標をどのように使ったのかについても述べる。
 
 \subsection{使用したデータ}
 今回JAXAから４８件提供の実際に発生した不具合情報のレポートを提供してもらった。
@@ -8,38 +8,45 @@
 
 \subsection{適用方法}
 本実験では以下の手順で適用した。
-\begin{itemize}
+\begin{enumerate}
 \item 不具合1つ1つに対して、欠陥が何であるかを明確にした
 \item 明確になった欠陥に対して、欠陥分類のどれに該当するのかをマッピングした
 \item マッピングされた欠陥に対して、それがどのプロセスで見つけるべきであったかを確認した
 \item 確認したデータを集計した
-\end{itemize}
+\end{enumerate}
 
 \subsection{適用結果}
 \subsubsection{欠陥の抽出および欠陥分類のマッピング}
-今回の４８件の不具合から１１０件の欠陥を抽出することができた。
+今回の４８件の障害から１１０件の欠陥を抽出することができた。
 すなわち、１件の不具合に対して複数の欠陥が存在している。
 この欠陥を分類した結果を表\ref{欠陥の数}に示す。
 分類区分とは図\ref{欠陥の分類}で示した分類１～4に対応している。
-Dellberate faultでありAccidental faultsaである①は３１件、Dellberate faultでありIncompetence faultsであるは件２２、Non-Dellberate faultでありAccidental faultsであるは件１３、Non-Dellberate faultでありIncompetence faultsであるは件４４であった。各不具合に対する結果の分類の細かなデータは付録にて掲載する
+Dellberate faultでありAccidental faultsaである分類Ⅰは３１件、Dellberate faultでありIncompetence faultsである分類Ⅱは件２２、Non-Dellberate faultでありAccidental faultsである分類Ⅲは件１３、Non-Dellberate faultでありIncompetence faultsである分類Ⅳは件４４であった。
+%各不具合に対する結果の分類の細かなデータは付録にて掲載する
 \begin{table}[bp]
 \begin{tabular}{|l|l|l|} \hline
 分類区分 & 欠陥の種類 & 件数 \\\hline\hline
-① & Dellberate faultでありAccidental faults & 31 \\\hline
-② & Dellberate faultでありIncompetence faults & 22 \\\hline
-③ & Non-Dellberate faultでありAccidental faults & 13 \\\hline
-④ & Non-Dellberate faultでありIncompetence faults & 44 \\\hline
+分類Ⅰ & Dellberate faultでありAccidental faults & 31 \\\hline
+分類Ⅱ & Dellberate faultでありIncompetence faults & 22 \\\hline
+分類Ⅲ & Non-Dellberate faultでありAccidental faults & 13 \\\hline
+分類Ⅳ & Non-Dellberate faultでありIncompetence faults & 44 \\\hline
 \multicolumn{2}{|l|}{合計} & 110 \\\hline
 \end{tabular}
-\caption{各欠陥に対する不具合の数①or分類1}
+\caption{欠陥の分類結果および集計}
 \label{欠陥の数}
 \end{table}
 \subsubsection{集計}
 上記の結果よりどのプロセスで発見すべきだったのかをマッピングした。
-一つの欠陥につき、複数のプロセスで見つけることになるものもある。
-マッピングした結果は付録に掲載する（図\ref{プロセスによる分類}）。
-１つの欠陥に対して複数の個所が該当することもある。
-プロセスにより分類した結果を①～④に対してそれぞれ集計し、グラフ化を行うことでそれぞれの特徴が見えてくる。
+1つの欠陥につき、複数のプロセスで見つけるべきだったものも存在している。
+マッピングした結果を図\ref{プロセスによる分類}に示す。
+プロセスにより分類した結果を分類Ⅰ～分類Ⅳに対してそれぞれ集計し、グラフ化を行うことでそれぞれの特徴が見えた。
+その結果について5章で述べる。
 
-
+\begin{figure*}
+\begin{center}
+\includegraphics[keepaspectratio, scale=0.2]{process.eps}
+\caption{プロセスによる分類}
+\label{プロセスによる分類}
+\end{center}
+\end{figure*}
 
