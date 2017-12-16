@@ -1,33 +1,42 @@
-
-
-前記したように、本研究で２つの指標を用いる。
-１つ目は、不具合の原因となっている欠陥についての分類である。
-２つ目は、開発の工程を示している開発プロセスである。
-この異なる軸の２つの指標を組み合わせることで、今まで見えていなかった不具合の傾向の発見や、対策の第一歩となることが期待できる。
-この章では、それぞれの指標について記述する。
+先述したように，本研究ではソフトウェアの不具合の分類のために，2つの指標を用いる．
+1つ目は，不具合の原因となっている欠陥に基づく分類である．
+2つ目は，開発プロセスである．
+この異なる軸の2つの指標を組み合わせることで，従来研究では発見されなかった不具合の傾向の発見や，不具合を生じさせないための対策を講じることが期待できる．
+本章では，それぞれの指標について記述する．
 
 \subsection{欠陥の分類}
-まず初めに、不具合とは、欠陥とは何かについて説明をする\cite{1335465}。
-図\ref{不具合の関係}に示すように不具合とは、本来提供されるべき、正しいサービスが何らかの影響で正しく提供されない事である。
-その正しくないサービス状態のことをFailure（障害）という。
-障害につながりうるシステムの内部状態をError（誤り）という。
-誤りは、内部状態であるため、私たちは直接体感することはできない。
-誤りが生じるきっかけや、原因となるものがFault（欠陥）である。
-私たちが実際に”不具合だ”と感じるのは障害であるが、その原因となっている、欠陥について着目した。
+\label{sec:faults}
+まず，不具合および欠陥について説明する\cite{1335465}．
+図\ref{不具合の関係}に示すように不具合とは，本来提供されるべき正しいサービスが何らかの影響で正しく提供されないことを示す．
+その正しくないサービス状態のことをFailure（障害）という．
+障害につながりうるシステムの内部状態をError（誤り）という．
+誤りは，内部状態であるため，我々は直接体感することはできない．
+誤りが生じるきっかけや，原因となるものがFault（欠陥）である．
+私たちが実際に``不具合だ''と感じるのは障害であり，本研究では障害の原因となっている欠陥について着目した．
 
-先行研究\cite{1335465}では、一般的な不具合について整理されている。
-特に、図\ref{欠陥の分類}に示すように不具合全体の誤りの原因となる欠陥について着目している。
-この研究では独立した軸を持つ２値の値を持つ８つの観点をもとに欠陥を分類している。合計$2^8=256$通りあり、そのうち言葉の定義上存在しないものを除いた、計３１通りで欠陥を網羅的に分類している。
-8つの観点とは、Phase of creation or occurrence(Development faults, Operational faults), System boundaries(Internal faults, External faults), Phenomenological cause(Natural faults, Human-Made faults), Dimension(Hardware faults,Software faults), Objective(Non-Malicious faults, Malicious faults), Intent(Non-Deliberate faults, Deliberate faults), Capability(Accidebtal faults, Incompetence faults), Persistence(Permanent faults, Transient faults)である。
-言葉の定義上存在しないものとは、Malicious faultsでありNon-Deliberate faults等のことである。
-本論文では、分類された31個の欠陥を図\ref{欠陥の分類}の左から順に分類1、分類2・・・・と呼ぶことにする。
+既存研究において，Avizienisらは，一般的な不具合について分類を行った\cite{1335465}．
+特に，図\ref{欠陥の分類}に示すように不具合全体の誤りの原因となる欠陥について着目している．
+彼らは，独立した2値の値を持つ8つの観点，すなわち$2^8=256$通りの観点を提案し，そのうち言葉の定義上存在しないものを除いた，計31通りの観点から欠陥を網羅的に分類している．
+8つの観点とは，以下に示すものである．
+\begin{itemize}
+\item Phase of creation or occurrence(Development faults, Operational faults)
+\item System boundaries(Internal faults, External faults)
+\item Phenomenological cause(Natural faults, Human-Made faults)
+\item Dimension(Hardware faults,Software faults)
+\item Objective(Non-Malicious faults, Malicious faults)
+\item Intent(Non-Deliberate faults, Deliberate faults)
+\item Capability(Accidebtal faults, Incompetence faults)
+\item Persistence(Permanent faults, Transient faults)
+\end{itemize}
+言葉の定義上存在しないものとは，Malicious faultsでありNon-Deliberate faultsであるもの等を示す．
+本論文では，分類された31個の欠陥を図\ref{欠陥の分類}の左から順に分類1，分類2と呼ぶことにする．
 
-先行研究では原因となる欠陥全体の分類はできた一方で、高信頼性システムに致命的な影響を与える”要求の不完全さ”に対処することは困難である。
+Avizienisらの研究では原因となる欠陥全体の分類はできた一方で，高信頼性システムに致命的な影響を与える``要求の不完全さ''については考慮されいない．
 
 \begin{figure}
 \begin{center}
 \includegraphics[keepaspectratio, scale=0.2]{relationship.eps}
-\caption{不具合に関する欠陥、誤り、障害の関係}
+\caption{不具合に関する欠陥，誤り，障害の関係}
 \label{不具合の関係}
 \end{center}
 \end{figure}
@@ -41,17 +50,17 @@
 \end{figure}
 
 
-本研究では、この分類からソフトウェアに関係し、さらに開発時に生じたものに着目した。
-その結果３１通りの分類が、図\ref{欠陥の分類}に示す１～５までの５通りとなった。
-さらに、”Malicious faults”は存在しないものとした。
-よって対象とする観点はIntentの有無、Capabilityの有無であり、４通りとなっている。
-Dellberate faultでありAccidental faultsを分類1、Dellberate faultでありIncompetence faultsを分類2、Non-Dellberate faultでありAccidental faultsを分類3、Non-Dellberate faultでありIncompetence faultsを分類4とした
+本研究では，Avizienisらの分類からソフトウェア開発時に生じるのに着目した．
+すなわち，Development faultsでありSoftware faultsである，図\ref{欠陥の分類}に示す分類1～分類5までの5通りとなった．
+さらに，対象としている不具合では，悪意をもって欠陥を入れることはないと判断し，Malicious faultsは存在しないものとした．
+よって対象とする観点はIntentの有無，Capabilityの有無であり，4通りとなっている．
+Dellberate faultでありAccidental faultsを分類1，Dellberate faultでありIncompetence faultsを分類2，Non-Dellberate faultでありAccidental faultsを分類3，Non-Dellberate faultでありIncompetence faultsを分類4とした
 
 
 \subsection{開発プロセス}
-本研究ではJAXAが提供している、ソフトウェア開発標準を使用した。
-これは ISO/IEC 12207や JIS X0160-1996などを元に作られたものである。
-ソフトウェア開発標準は表\ref{２つのプロセス}に示すように、大きく２つのプロセスから成り立っている。
+欠陥を分類するために1つの指標として，JAXAが提供しているソフトウェア開発標準を使用した．
+これは ISO/IEC 12207\cite{ISO}や JIS X0160-1996\cite{JIS}などを元に作られたものである．
+ソフトウェア開発標準は表\ref{2つのプロセス}に示すように，大きく2つのプロセスから成り立っている．
 
 
 \begin{table}[t]
@@ -72,7 +81,7 @@ Dellberate faultでありAccidental faultsを分類1、Dellberate faultでありIncompeten
  & 問題解決プロセス \\ \hline
 \end{tabular}\hfil}
 \caption{主ライフサイクルプロセスと支援ライフサイクルプロセス}
-\label{２つのプロセス}
+\label{2つのプロセス}
 \end{table}
 
 \begin{table*}[!hbt]
@@ -83,10 +92,10 @@ Dellberate faultでありAccidental faultsを分類1、Dellberate faultでありIncompeten
 開発準備 & 1.2 & 開発計画の文章化 \\\hline
 コンピュータシステム & 2.1& 要求を抽出する \\ \cline{2-3}
 要求分析 & 2.2 & 要求仕様書の作成 \\\hline
- & 3.1 & 構成する品目、種別を明確に \\ \cline{2-3}
+ & 3.1 & 構成する品目，種別を明確に \\ \cline{2-3}
  & 3.2 & 各構成品目に要求を割り当てる \\ \cline{2-3}
 コンピュータシステム & 3.3 & 実現可能性を評価 \\ \cline{2-3}
-方式設計 & 3.4 & 設計根拠と前提条件を明らかにし、評価 \\ \cline{2-3}
+方式設計 & 3.4 & 設計根拠と前提条件を明らかにし，評価 \\ \cline{2-3}
  & 3.5 & 上位とのトレーサビリティを評価 \\ \cline{2-3}
  & 3.6 & インターフェース要求を抽出 \\\hline
  & 4.1 & ソフトウェア要求仕様書の作成 \\ \cline{2-3}
@@ -97,21 +106,20 @@ Dellberate faultでありAccidental faultsを分類1、Dellberate faultでありIncompeten
 要求分析 & 4.6 & 上位との整合性を得る \\ \cline{2-3}
  & 4.7 & 実現可能性の評価 \\ \cline{2-3}
  & 4.8 & 元からあるものを使うときは整合性などを確認 \\ \cline{2-3}
- & 4.9 & 前提条件、制約を明確に \\ \cline{2-3}
+ & 4.9 & 前提条件，制約を明確に \\ \cline{2-3}
  & 4.10 & 検証可能性を評価 \\ \cline{2-3}
  & 4.11 & 試験計画可能性を評価 \\ \cline{2-3}
- & 4.12 & 環境やHWの影響がある場合確認の評価 \\\hline
+ & 4.12 & 環境やハードウェアの影響がある場合確認の評価 \\\hline
 \end{tabular}\hfil}
 \caption{開発プロセスの内容}
 \label{開発プロセス}
 \end{table*}
 
-１つ目が主ライフサイクルプロセスであり、もう一つが、支援ライフサイクルプロセスである。
-主ライフサイクルプロセスは、ソフトウェア開発に直接かかわってくるソフトウェアライフサイクルのプロセスであり、３つ（開発プロセス、運用プロセス、保守プロセス）に分けられ、さらにそれらが細かくわけられている。
-支援ライフサイクルは、主ライフサイクルプロセスを支える、他のプロセスから呼びだされるプロセスであり、８つ（文書化プロセス、構成管理プロセス、品質保証プロセス、検証プロセス、妥当性確認プロセス、共同レビュープロセス、アセスメントプロセス、問題解決プロセス
-）に分けられおり、こちらも同様に細かく分けられている。
-本研究では、開発をしているソフトウェアを対象とするため、主ライフサイクルプロセスの中の開発プロセスに着目した。
-また、”要求が不完全であることに起因するソフトウェア問題を減らす”という目的があったため、開発プロセスのなかでもソフトウェア要求分析より上位のプロセス（プロセスの開発準備、コンピュータシステム要求分析、コンピュータシステム方式設計、ソフトウェア要求分析）を対象とした。
-それぞれの詳細な内容及び対応する番号は表\ref{開発プロセス}に示す。
+1つ目が主ライフサイクルプロセスであり，もう2つ目が，支援ライフサイクルプロセスである．
+主ライフサイクルプロセスは，ソフトウェア開発に直接かかわってくるソフトウェアライフサイクルのプロセスであり，大きく3つのプロセス（開発プロセス，運用プロセス，保守プロセス）に分類されている．
+支援ライフサイクルは，主ライフサイクルプロセスを支える，他のプロセスから呼びだされるプロセスであり，大きく8つ（文書化プロセス，構成管理プロセス，品質保証プロセス，検証プロセス，妥当性確認プロセス，共同レビュープロセス，アセスメントプロセス，問題解決プロセス）に分類されている．
+本研究では，開発が行われているソフトウェアを対象とするため，主ライフサイクルプロセスの中の開発プロセスに着目した．
+また，本研究が対象とする欠陥は要求のあやまりに基づく欠陥であるため，開発プロセスのなかでもソフトウェア要求分析より上位のプロセス（プロセスの開発準備，コンピュータシステム要求分析，コンピュータシステム方式設計，ソフトウェア要求分析）も分析対象とした．
+それぞれの詳細な内容を表\ref{開発プロセス}に示す．
 
 
