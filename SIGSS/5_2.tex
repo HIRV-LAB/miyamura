@@ -1,9 +1,9 @@
-本章では，4章で分析した結果及び結果に対する考察を行う．
+本章では，\ref{不具合の分類}章で分析した結果及び，欠陥の総数や\ref{sec:faults}で示したIntentやCapabilityの違い，欠陥の起点となるプロセスについて考察を行う．
 \subsection{各プロセスにおいて発見されるべき欠陥数の比較}
 \label{積み上げ}
 \begin{figure}[b]
 \begin{center}
-\includegraphics[keepaspectratio, scale=0.1]{add.eps}
+\includegraphics[keepaspectratio, scale=0.09]{add.eps}
 \caption{各プロセスにおいて発見されるべき欠陥数}
 \label{積み上げグラフ}
 \end{center}
@@ -29,9 +29,9 @@ Non-Dellberate fault（灰色）は欠陥の分類1と分類2を足したものとなっており，Dellbe
 この理由として，確認すべき上位の``SW要求仕様書の作成''の成果物の影響であることが述べられる．
 ``SW要求仕様書の作成''において，不具合が多いことは\ref{積み上げ}節で示した通りである．
 すなわち，完全でなかった成果物に対して整合性を確認したことになり，結果として``整合性の確認''のNon-Dellberate faultの項目がDellberate faultに比べ高い割合であったと考えられる．
-\begin{figure}[t]
+\begin{figure}[b]
 \begin{center}
-\includegraphics[keepaspectratio, scale=0.1]{Intent.eps}
+\includegraphics[keepaspectratio, scale=0.09]{Intent.eps}
 \caption{Dellberate faultとNon-Dellberate faultの比較}
 \label{1+2}
 \end{center}
@@ -55,7 +55,7 @@ Accidental faults（灰色）は欠陥の分類1と分類3を足したものとなっており，Incompete
 
 \begin{figure}[b]
 \begin{center}
-\includegraphics[keepaspectratio, scale=0.1]{Capability.eps}
+\includegraphics[keepaspectratio, scale=0.09]{Capability.eps}
 \caption{Accidental faultsとIncompetence faultsの比較}
 \label{1+3}
 \end{center}
@@ -135,6 +135,6 @@ Accidental faults（灰色）は欠陥の分類1と分類3を足したものとなっており，Incompete
 
 本分析より他のプロセスに影響を与える欠陥の起点となっているプロセスが導かれる．
 欠陥の起点となるプロセスとは，特定の個所から影響を受けていないが他に影響を与える項目である．
-候補としては，``開発計画立案''，``開発計画文章化''，``要求の割り当て''，``CSの実現可能性の評価''，``トレーサビリティの評価''，``IF要求の抽出''，``識別子付与''，``DB仕様書を含める''である．
-一方で，``CSの実現可能性の評価''，``識別子付与''，``DB仕様書を含める''は今回のデータに欠陥がないまたは著しく少ないので除外した．
-さらに``開発計画文章化''は他に影響を与えないため，今回の不具合データから，``開発計画立案''，，``要求の割り当て''，``トレーサビリティの評価''，``IF要求の抽出''が欠陥の起点となり，このプロセスの強化することが望まれる．
+候補としては，``開発計画立案''，``開発計画文章化''，``要求の割り当て''，``CSの実現可能性の評価''，``トレーサビリティの評価''，``IF要求の抽出''，``識別子付与''，``DB仕様書を含める''があげられる．
+一方で，``CSの実現可能性の評価''，``識別子付与''，``DB仕様書を含める''は今回のデータに欠陥がないまたは著しく少ないため除外し，``開発計画文章化''は他に影響を与えないため除外した．
+よって今回の不具合データからは，``開発計画立案''，，``要求の割り当て''，``トレーサビリティの評価''，``IF要求の抽出''が欠陥の起点となり，このプロセスの強化することが望まれる．
