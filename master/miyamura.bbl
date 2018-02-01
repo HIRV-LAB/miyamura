@@ -1,0 +1,80 @@
+\begin{thebibliography}{10}
+
+\bibitem{syd}
+失敗百選.
+\newblock http://www.sydrose.com/case100/index.html.
+
+\bibitem{std}
+Ieee recommended practice for software requirements specifications.
+\newblock {\em IEEE Std 830-1998}, pp. 1--40, Oct 1998.
+
+\bibitem{ALSHAZLY2014513}
+Amira~A. Alshazly, Ahmed~M. Elfatatry, and Mohamed~S. Abougabal.
+\newblock Detecting defects in software requirements specification.
+\newblock {\em Alexandria Engineering Journal}, Vol.~53, No.~3, pp. 513 -- 527,
+  2014.
+
+\bibitem{1335465}
+A.~Avizienis, J.~C. Laprie, B.~Randell, and C.~Landwehr.
+\newblock Basic concepts and taxonomy of dependable and secure computing.
+\newblock {\em IEEE Transactions on Dependable and Secure Computing}, Vol.~1,
+  No.~1, pp. 11--33, 2004.
+
+\bibitem{4812749}
+A.~Ghazarian.
+\newblock A case study of source code evolution.
+\newblock In {\em In Proc. 2009 13th European Conference on Software
+  Maintenance and Reengineering}, pp. 159--168, March 2009.
+
+\bibitem{stamp_time}
+IPAニューヨークだより.
+\newblock 5月号 stamp（システム理論に基づく事故モデル）研究の現状（前編）.
+\newblock https://www.ipa.go.jp/files/000038950.pdf, 2009.
+
+\bibitem{safe}
+Nancy~G. Leveson.
+\newblock {\em Safeware: System Safety and Computers}.
+\newblock Addison-Wesley Professional, 1995.
+
+\bibitem{ESW}
+Nancy~G. Leveson.
+\newblock {\em Engineering a Safer World: Systems Thinking Applied to Safety
+  (Engineering Systems)}.
+\newblock The MIT Press, 2012.
+
+\bibitem{222}
+John~Stuart Mill.
+\newblock {\em A System of Logic, Ratiocinative and Inductive: Being a
+  Connected View of the Principles of Evidence and the Methods of Scientific
+  Investigation}.
+\newblock John W. Parker, 1843.
+
+\bibitem{ISO}
+ISO/IEC:~Amendment to~ISO/IEC 12207-2008~Systems and Software Engineering.
+\newblock Software life cycle processes. iso, geneva, switzerland, 1995.
+
+\bibitem{JAXA}
+宇宙航空研究開発機構.
+\newblock ソフトウェア開発標準.
+\newblock http://sma.jaxa.jp/TechDoc/Docs/JAXA-JERG-0-04 9.pdf.
+
+\bibitem{JAXA3}
+宇宙航空研究開発機構.
+\newblock 宇宙機搭載ソフトウェア開発のアセスメント.
+\newblock http://www.jaspic.org/event/20 09/SPIJapan/session1A/1A3.pdf.
+
+\bibitem{JAXA2}
+宇宙航空研究開発機構.
+\newblock 宇宙航空研究開発機構(jaxa)における信頼性向上とその対応策.
+\newblock https://www.ipa.go.jp/files/000004749.pdf.
+
+\bibitem{oda}
+小田まり子, 掛下哲郎.
+\newblock パターンマッチングに基づいたcプログラムの落し穴検出法.
+\newblock 情報処理学会論文誌, Vol.~35, No.~11, pp. 2427--2436, nov 1994.
+
+\bibitem{JIS}
+日本工業標準調査会.
+\newblock {JIS X0160：ソフトウェアライフサイクルプロセス}, 1996.
+
+\end{thebibliography}
