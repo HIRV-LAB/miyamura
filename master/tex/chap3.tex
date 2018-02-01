@@ -1,0 +1,133 @@
+本研究ではソフトウェアにおける不具合の分類のために，以下の2つの指標を用いる．
+\begin{itemize}
+\item 不具合の原因となっている欠陥に基づく分類
+\item ソフトウェア開発プロセス
+\end{itemize}
+
+既存の静的な欠陥による分類法と，動的なソフトウェア開発プロセスに着目することで，要求が不完全であることに起因するソフトウェアにおける欠陥の分類法を提示する．
+
+観点の異なる2つの指標を組み合わせることで，従来研究では発見されなかった不具合の傾向の発見や，不具合を生じさせないための対策について講じることが期待できる．
+本研究では欠陥の分類法としてAvizienisらの提案した分類を\cite{1335465}，ソフトウェア開発プロセスとして，JAXAが使用しているソフトウェア開発標準\cite{JAXA}を用いた．
+本章では，それぞれの指標について詳述する．
+
+\subsection{欠陥の分類}
+\label{sec:欠陥の分類}
+Avizienisらは一般的な不具合全体について，誤りの原因となる欠陥に着目している\cite{1335465}．
+彼らは，図\ref{欠陥の分類}に示すように，独立した2つの値を持つ8つの観点，すなわち$2^8=256$通りの観点を提案し，そのうち言葉の定義上存在しないものを除いた，計31通りに欠陥を分類している．
+彼らが定義した8つの観点と独立した2つの値を表\ref{point}に示す．
+言葉の定義上存在しないものとは，Malicious faultsでありNon-Deliberate faultsであるもの等を示す．
+図\ref{欠陥の分類}の左側には，8つの観点のうち独立した2つの値を示し，該当する箇所を・で示している．
+彼らの研究では原因となる欠陥全体の分類はできた一方で，高信頼性システムに致命的な影響を与える``要求の不完全さ''については考慮されていない．
+
+
+\begin{landscape}
+\begin{figure*}[hb]
+\begin{center}
+\includegraphics[keepaspectratio,scale=0.5]{tex/fig/classfication.eps}
+\caption{Avizienisらの提案する欠陥の分類}
+\label{欠陥の分類}
+\end{center}
+\end{figure*}
+\end{landscape}
+
+\begin{table}[htbp]
+\caption{欠陥の観点と2つの値}
+\begin{tabular}{|l|l|l|} \hline
+観点 & 1つ目の値 & 2つ目の値 \\\hline
+item Phase of creation or occurrence  & Development faults & Operational faults \\\hline
+item System boundaries  & Internal faults & External faults \\\hline
+item Phenomenological cause  & Natural faults & Human-Made faults \\\hline
+item Dimension  & Hardware faults & Software faults \\\hline
+item Objective  & Non-Malicious faults & Malicious faults \\\hline
+item Intent  & Non-Deliberate faults & Deliberate faults \\\hline
+item Capability  & Accidental faults & Incompetence faults \\\hline
+item Persistence  & Permanent faults & Transient faults \\\hline
+\end{tabular}
+\label{point}
+\end{table}
+
+
+Avizienisらが提案した欠陥の分類は，不具合全体を対象としたものである．
+本研究では，要求が不完全であることに起因するソフトウェアの不具合を減らすことに着目している．
+そのため，Avizienisらの分類のうち，ソフトウェア開発時に生じるものに着目した．
+すなわち，Development faultsであり，Software faultsである項目である．
+また，対象としている不具合では悪意を持って欠陥を入れることはないと判断し，Malicious faultsは存在しないものとした．
+よって本研究では，Development faultsであり，Software faultsであり，Malicious faultsでないものを対象とする．
+これより，対象とする観点はIntentとCapabilityの有無であり，表\ref{分類の観点}に示す4通りとなっている．
+
+
+\begin{table}[bp]
+\begin{center}
+\caption{対象とする欠陥}
+\label{分類の観点}
+\begin{tabular}{|l|l|} \hline
+分類1 & Deliberate faultでありAccidental faults \\\hline
+分類2 & Deliberate faultでありIncompetence faults \\\hline
+分類3 & Non-Deliberate faultでありAccidental faults \\\hline
+分類4 & Non-Deliberate faultでありIncompetence fault \\\hline
+\end{tabular}
+\end{center}
+
+\end{table}
+分類1は，開発者が気付くことがなく入れられた欠陥であり，不注意に導入された欠陥である．
+すなわち，開発者がすべきことを忘れていた欠陥等が該当する．
+分類2は，開発者が気付くことなく入れてしまった欠陥であり，能力不足による欠陥である．
+すなわち，開発者がすることが分からなかった欠陥等が該当する．
+分類3は，考えた上での欠陥であり，不注意に導入された欠陥である．
+すなわち，開発者は正しく行っていたつもりであるが，不注意などでたまたま混入した欠陥等が該当する．
+分類4は，考えた上での欠陥であり，能力不足による欠陥である．
+すなわち，開発者は正しく行っていたが，能力不足によって混入した欠陥が該当する．
+
+
+
+\subsection{ソフトウェア開発プロセス}
+\label{プロセス}
+欠陥を分類するための指標として，JAXAが提供しているソフトウェア開発標準\cite{JAXA}を使用した．
+これはISO/IEC 12207\cite{ISO}やJIS X0160-1996\cite{JIS}などを元に作られたものである．
+ソフトウェア開発標準は，人工衛星・探索機・ロケット・地上システムなどに関わるソフトウェアの開発・運用・保守に関する活動が適用範囲であり，大きく2つのプロセスから成り立っている．
+
+1つ目が主ライフサイクルプロセスであり，2つ目が支援ライフサイクルプロセスである．
+主ライフサイクルプロセスは，ソフトウェア開発に直接かかわってくるソフトウェアライフサイクルのプロセスであり，大きく3つのプロセス（ソフトウェア開発プロセス，運用プロセス，保守プロセス）に分類される．
+支援ライフサイクルは，主ライフサイクルプロセスを支える，他のプロセスから呼びだされるプロセスである．
+本研究では，開発が行われているソフトウェアを対象とするため，主ライフサイクルプロセスの中のソフトウェア開発プロセスに着目した．
+また，本研究が対象とする欠陥は要求漏れに基づく欠陥であるため，ソフトウェア開発プロセスの中でもソフトウェア要求分析より上位のプロセス（プロセスの開発準備，コンピュータシステム要求分析，コンピュータシステム方式設計，ソフトウェア要求分析など）を分析対象とした．
+それぞれの詳細な内容を表\ref{ソフトウェア開発プロセス}に示す．
+以下グラフ中では対応IDを，本文中ではIDと略称を使用する．
+
+\begin{landscape}
+\begin{table*}[!hbt]
+%\scriptsize
+%\footnotesize
+\small
+\caption{ソフトウェア開発プロセスの内容}
+\label{ソフトウェア開発プロセス}
+\hbox to\hsize{\hfil
+\begin{tabular}{|l|l|l|l|} \hline
+プロセス & 対応するプロセスID & 詳細な内容 & 略称 \\ \hline\hline
+プロセスの & 1.1 & ソフトウェア開発計画を立案すること & 開発計画立案 \\ \cline{2-4}
+開発準備 & 1.2 & 開発計画の文章化 & 開発計画文章化 \\\hline
+コンピュータシステム & 2.1& 要求を抽出する & 要求抽出 \\ \cline{2-4}
+要求分析 & 2.2 & 要求仕様書の作成 & 要求仕様書作成 \\\hline
+ & 3.1 & 構成する品目，種別を明確にする & 構成物の明確化 \\ \cline{2-4}
+ & 3.2 & 各構成品目に要求を割り当てる & 要求の割り当て \\ \cline{2-4}
+コンピュータシステム & 3.3 & 実現可能性を評価 & CSの実現可能性評価 \\ \cline{2-4}
+方式設計 & 3.4 & 設計根拠と前提条件を明らかにし，評価 & 前提条件の評価 \\ \cline{2-4}
+ & 3.5 & 上位とのトレーサビリティを評価 & トレーサビリティの評価 \\ \cline{2-4}
+ & 3.6 & インターフェース要求を抽出 & IF要求の抽出 \\\hline
+ & 4.1 & ソフトウェア要求仕様書の作成 & SW要求仕様書の作成 \\ \cline{2-4}
+ & 4.2 & 個別に識別子を付与 & 識別子付与 \\ \cline{2-4}
+ & 4.3 & データおよびデータベースに対する仕様を含める & DB仕様を含める \\ \cline{2-4}
+ & 4.4 & 異常検知および処理に関する仕様を含める & 異常処理の仕様を含める \\ \cline{2-4}
+ソフトウェア & 4.5 & インターフェース仕様に関して合意を得ること & IFの確認 \\ \cline{2-4}
+要求分析 & 4.6 & 上位との整合性を得る & 上位との整合性確認 \\ \cline{2-4}
+ & 4.7 & 実現可能性の評価 & RAの実現可能性評価 \\ \cline{2-4}
+ & 4.8 & 元からあるものを使うときは整合性などを確認 & 既存物との整合性の確認 \\ \cline{2-4}
+ & 4.9 & 前提条件，制約を明確にする & 前提条件の明確化 \\ \cline{2-4}
+ & 4.10 & 検証可能性を評価 & 検証可能性評価 \\ \cline{2-4}
+ & 4.11 & 試験計画可能性を評価 & 試験についての評価 \\ \cline{2-4}
+ & 4.12 & 環境やハードウェアの影響がある場合確認の評価 & HWの評価 \\\hline
+\end{tabular}\hfil}
+\end{table*}
+\end{landscape}
+
+
